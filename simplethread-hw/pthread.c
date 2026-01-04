@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <sched.h>
 #include <syslog.h>
-#define NUM_THREADS 12
+#define NUM_THREADS 1
 
 typedef struct
 {
@@ -24,10 +24,10 @@ void *counterThread(void *threadp)
 
     for(i=1; i < (threadParams->threadIdx)+1; i++)
         sum=sum+i;
- 
-    printf("Thread idx=%d, sum[0...%d]=%d\n", 
-           threadParams->threadIdx,
-           threadParams->threadIdx, sum);
+    syslog(LOG_CRIT, "[COURSE:1][ASSIGNMENT:1] Hello World from Thread!\n");
+    // printf("Thread idx=%d, sum[0...%d]=%d\n", 
+    //        threadParams->threadIdx,
+    //        threadParams->threadIdx, sum);
 }
 
 
@@ -35,6 +35,7 @@ int main (int argc, char *argv[])
 {
    int rc;
    int i;
+   syslog(LOG_CRIT, "[COURSE:1][ASSIGNMENT:1] Hello from Main!\n");
 
    for(i=0; i < NUM_THREADS; i++)
    {
@@ -51,5 +52,4 @@ int main (int argc, char *argv[])
    for(i=0;i<NUM_THREADS;i++)
        pthread_join(threads[i], NULL);
 
-   syslog(LOG_CRIT, "[COURSE:1][ASSIGNMENT:1] All threads completed.\n");
 }
