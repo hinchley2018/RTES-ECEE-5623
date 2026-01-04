@@ -51,5 +51,5 @@ int main (int argc, char *argv[])
    for(i=0;i<NUM_THREADS;i++)
        pthread_join(threads[i], NULL);
 
-   syslog(LOG_CRIT, "All threads completed.\n");
+   syslog(LOG_CRIT, "[COURSE:1][ASSIGNMENT:1] All threads completed.\n");
 }
