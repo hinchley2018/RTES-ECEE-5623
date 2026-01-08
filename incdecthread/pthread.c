@@ -11,6 +11,7 @@
 #define COUNT  (1000000)
 //#define COUNT  (1000000000)
 
+//the amount we will increment and decrement by
 #define INCDEC_AMOUNT (1)
 
 typedef struct
@@ -55,7 +56,7 @@ void *incThread(void *threadp)
         atomic_fetch_add(&agsum, INCDEC_AMOUNT);
         //agsum=agsum+INCDEC_AMOUNT;
 
-        //printf("Increment thread idx=%d, gsum=%d,  agsum=%d\n", threadParams->threadIdx, gsum, agsum);
+        printf("Increment thread idx=%d, gsum=%d,  agsum=%d\n", threadParams->threadIdx, gsum, agsum);
     }
     return (void *)0;
 }
@@ -73,7 +74,7 @@ void *decThread(void *threadp)
         atomic_fetch_sub(&agsum, INCDEC_AMOUNT);
         //agsum=agsum-INCDEC_AMOUNT;
 
-        //printf("Decrement thread idx=%d, gsum=%d, agsum=%d\n", threadParams->threadIdx, gsum, agsum);
+        printf("Decrement thread idx=%d, gsum=%d, agsum=%d\n", threadParams->threadIdx, gsum, agsum);
     }
     return (void *)0;
 }
