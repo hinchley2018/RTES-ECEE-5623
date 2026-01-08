@@ -24,7 +24,7 @@ void *counterThread(void *threadp)
 
     for(i=1; i < (threadParams->threadIdx)+1; i++){
         sum=sum+i;
-        syslog(LOG_CRIT, "[COURSE:1][ASSIGNMENT:1] Thread idx=%d, sum[0...%d]=%d\n", threadParams->threadIdx, threadParams->threadIdx, sum);
+        syslog(LOG_CRIT, "[COURSE:1][ASSIGNMENT:1] Thread idx=%d, sum[1...%d]=%d\n", threadParams->threadIdx, threadParams->threadIdx, sum);
 
     }
     // printf("Thread idx=%d, sum[0...%d]=%d\n", 
