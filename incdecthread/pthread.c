@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sched.h>
-
+#include <syslog.h>
 #include <stdatomic.h>
 
 // If you test at more than 1 billion and/or with a larger INCDEC_AMOUNT, you
